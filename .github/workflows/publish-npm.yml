@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
+      # Add this step to create .npmrc
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
       - run: yarn install
       - run: yarn test
       - run: yarn build
