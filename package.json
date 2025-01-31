@@ -23,7 +23,7 @@
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "yarn build"
   },
   "peerDependencies": {
     "react": "^18.3.1",
