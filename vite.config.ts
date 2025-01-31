@@ -24,7 +24,7 @@ export default defineConfig({
       input: Object.fromEntries(
         glob
           .sync("lib/**/*.{ts,tsx}", {
-            ignore: ["lib/**/*.d.ts"],
+            ignore: ["lib/**/*.d.ts", "lib/**/__test__/**", "lib/**/__docs__/**"],
           })
           .map((file) => [
             // The name of the entry point
@@ -35,10 +35,10 @@ export default defineConfig({
             fileURLToPath(new URL(file, import.meta.url)),
           ]),
       ),
-    },
-    output: {
-      assetFileNames: "assets/[name][extname]",
-      entryFileNames: "[name].js",
+      output: {
+        assetFileNames: "assets/[name][extname]",
+        entryFileNames: "[name].js",
+      },  
     },
   },
   test: {
